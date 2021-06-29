@@ -9,7 +9,7 @@ class Barang_model extends CI_Model
             return $this->db->get_where('barang', ['kode' => $id])->result_array();
         }
     }
-    
+
     public function deleteBarang($id)
     {
         $this->db->delete('barang', ['kode' => $id]);
@@ -21,7 +21,7 @@ class Barang_model extends CI_Model
         $this->db->insert('barang', $data);
         return $this->db->affected_rows();
     }
-    
+
     public function updateBarang($data, $id)
     {
         $this->db->update('barang', $data, ['kode' => $id]);

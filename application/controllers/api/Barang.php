@@ -65,13 +65,14 @@ class Barang extends REST_Controller
     public function index_post()
     {
         $data = [
-            'kode' => $this->post('kode'), 
-            'nama_barang' => $this->post('nama'), 
+            'kode' => $this->post('kode'),
+            'nama_barang' => $this->post('nama'),
             'jenis' => $this->post('jenis'),
             'harga' => $this->post('harga'),
             'stok' => $this->post('stok')
         ];
-        if ($this->barang->createBarang($data) > 0) {
+        $result = $this->barang->createBarang($data);
+        if ($result > 0) {
             $this->response([
                 'status' => true,
                 'message' => 'new barang has been created.'
@@ -89,8 +90,8 @@ class Barang extends REST_Controller
     {
         $id = $this->put('kode');
         $data = [
-            'kode' => $this->put('kode'), 
-            'nama_barang' => $this->put('nama'), 
+            'kode' => $this->put('kode'),
+            'nama_barang' => $this->put('nama'),
             'jenis' => $this->put('jenis'),
             'harga' => $this->put('harga'),
             'stok' => $this->put('stok')
