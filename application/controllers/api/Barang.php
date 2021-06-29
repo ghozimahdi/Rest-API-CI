@@ -24,8 +24,6 @@ class Barang extends REST_Controller
             $barang = $this->barang->getBarang($id);
         }
 
-        echo "barang = $barang";
-
         if ($barang) {
             $this->response([
                 'status' => true,
@@ -34,7 +32,7 @@ class Barang extends REST_Controller
         } else {
             $this->response([
                 'status' => false,
-                'data' => 'kode not found'
+                'data' => 'Not Found'
             ], REST_Controller::HTTP_NOT_FOUND);
         }
     }
